@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>examine</display-name>
+	<listener>
+		<listener-class>com.bkl.examine.listener.ServicesListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>convt</servlet-name>
+		<servlet-class>com.bkl.examine.servlet.ConvertServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>convt</servlet-name>
+		<url-pattern>/convt/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>arctype</servlet-name>
+		<servlet-class>com.bkl.examine.servlet.ArcTypeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>arctype</servlet-name>
+		<url-pattern>/arctype/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>collection</servlet-name>
+		<servlet-class>com.bkl.examine.servlet.CollectionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>collection</servlet-name>
+		<url-pattern>/collection/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>handout</servlet-name>
+		<servlet-class>com.bkl.examine.servlet.HandoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>handout</servlet-name>
+		<url-pattern>/handout/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>banner</servlet-name>
+		<servlet-class>com.bkl.examine.servlet.BannerServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>banner</servlet-name>
+		<url-pattern>/banner/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>otherpart</servlet-name>
+		<servlet-class>com.bkl.examine.servlet.OtherPartServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>otherpart</servlet-name>
+		<url-pattern>/otherpart/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>version</servlet-name>
+		<servlet-class>com.bkl.examine.servlet.VersionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>version</servlet-name>
+		<url-pattern>/version/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>video</servlet-name>
+		<servlet-class>com.bkl.examine.servlet.VideoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>video</servlet-name>
+		<url-pattern>/video/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>open</servlet-name>
+		<servlet-class>com.bkl.examine.servlet.OpenServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>open</servlet-name>
+		<url-pattern>/open/*</url-pattern>
+	</servlet-mapping>
+	<!-- upload file -->
+	<servlet>
+		<servlet-name>uploadFile</servlet-name>
+		<servlet-class>com.km.common.servlet.UploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>uploadFile</servlet-name>
+		<url-pattern>/uploadFile</url-pattern>
+	</servlet-mapping>
+	<!-- upload file -->
+	<servlet>
+		<servlet-name>news</servlet-name>
+		<servlet-class>com.bkl.examine.servlet.NewsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>news</servlet-name>
+		<url-pattern>/news/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>question</servlet-name>
+		<servlet-class>com.bkl.examine.servlet.QuestionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>question</servlet-name>
+		<url-pattern>/question/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>oauth</servlet-name>
+		<servlet-class>com.bkl.examine.servlet.login.OauthServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>oauth</servlet-name>
+		<url-pattern>/oauth/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>materials</servlet-name>
+		<servlet-class>com.bkl.examine.servlet.MaterialsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>materials</servlet-name>
+		<url-pattern>/materials/*</url-pattern>
+	</servlet-mapping>
+	
+	<filter>
+		<filter-name>charsetFilter</filter-name>
+		<filter-class>com.km.common.filter.CharsetFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>charsetFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>admin_filter</filter-name>
+		<filter-class>com.km.common.servlet.ApiFilter</filter-class>
+		<init-param>
+			<param-name>session_name</param-name>
+			<param-value>adminusername</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>admin_filter</filter-name>
+		<url-pattern>/admin_api/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>backend_filter</filter-name>
+		<filter-class>com.km.common.filter.BackendFilter</filter-class>
+		<init-param>
+			<param-name>session_name</param-name>
+			<param-value>adminusername</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>backend_filter</filter-name>
+		<url-pattern>/backend/*</url-pattern>
+	</filter-mapping>
+
+
+	<filter>
+		<filter-name>root_filter</filter-name>
+		<filter-class>com.bkl.examine.servlet.RootFilter</filter-class>
+		<init-param>
+			<param-name>session_name</param-name>
+			<param-value>username</param-value>
+		</init-param>
+		<init-param>
+			<param-name>urls</param-name>
+			<param-value>/btc.jsp,/ltc.jsp,/rechargeBtc.jsp,/rechargeCny.jsp,/withdrawBtc.jsp,/withdrawCny.jsp,/entrust.jsp,/plan.jsp,/record.jsp,/security.jsp,/userinfo.jsp,/subscribe.jsp</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>root_filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>user</servlet-name>
+		<servlet-class>com.bkl.examine.servlet.UserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>user</servlet-name>
+		<url-pattern>/api/user/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>admin</servlet-name>
+		<servlet-class>com.bkl.examine.servlet.AdminServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>admin</servlet-name>
+		<url-pattern>/admin_api/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>media</servlet-name>
+		<servlet-class>com.bkl.examine.servlet.MediaServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>media</servlet-name>
+		<url-pattern>/media/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- <error-page> <error-code>404</error-code> <location>/404.jsp</location> 
+		</error-page> <error-page> <error-code>500</error-code> <location>/500.jsp</location> 
+		</error-page> -->
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+</web-app>
